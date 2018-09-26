@@ -1,0 +1,16 @@
+version: '3.6'
+
+networks: 
+  dockersql-network:
+    driver: bridge
+
+services:
+  dockersample.webapi:
+    image: dockersample.webapi
+    build:
+      context: .
+      dockerfile: Source/DockerSample.WebAPI/Dockerfile
+    networks:
+      - dockersample-network
+    depends_on:
+      - sql.database

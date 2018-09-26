@@ -8,10 +8,14 @@ EXPOSE 44393
 
 FROM microsoft/dotnet:2.1-sdk-nanoserver-1803 AS build
 WORKDIR /src
-COPY ["DockerSample.WebApi/DockerSample.WebApi.csproj", "DockerSample.WebApi/"]
-RUN dotnet restore "DockerSample.WebApi/DockerSample.WebApi.csproj"
+COPY ["Source/DockerSample.WebApi/DockerSample.WebApi.csproj", "Source/DockerSample.WebApi/"]
+COPY ["Source/DockerSample.Infra.CrossCutting.IOC/DockerSample.Infra.CrossCutting.IOC.csproj", "Source/DockerSample.Infra.CrossCutting.IOC/"]
+COPY ["Source/DockerSample.Infra.Data/DockerSample.Infra.Data.csproj", "Source/DockerSample.Infra.Data/"]
+COPY ["Source/DockerSample.Domain/DockerSample.Domain.csproj", "Source/DockerSample.Domain/"]
+COPY ["Source/DockerSample.Application/DockerSample.Application.csproj", "Source/DockerSample.Application/"]
+RUN dotnet restore "Source/DockerSample.WebApi/DockerSample.WebApi.csproj"
 COPY . .
-WORKDIR "/src/DockerSample.WebApi"
+WORKDIR "/src/Source/DockerSample.WebApi"
 RUN dotnet build "DockerSample.WebApi.csproj" -c Release -o /app
 
 FROM build AS publish

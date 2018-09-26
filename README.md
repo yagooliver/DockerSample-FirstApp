@@ -1,0 +1,9 @@
+- C#
+- ASP.NET CORE
+- WebApi
+- DDD (Domain driven design)
+- EntityFramework Core
+- SqlServer
+- UnitTests
+- Docker
+- Code First approach

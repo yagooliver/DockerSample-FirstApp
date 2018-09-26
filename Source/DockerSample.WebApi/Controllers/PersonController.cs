@@ -29,7 +29,11 @@ namespace DockerSample.WebApi.Controllers
         [AllowAnonymous]
         public IActionResult Get(string id)
         {
-            return Ok(_personAppService.GetById(Guid.Parse(id)));
+            var person = _personAppService.GetById(Guid.Parse(id));
+            if (person == null)
+                return NotFound();
+
+            return Ok(person);
         }
 
         [HttpPost]
