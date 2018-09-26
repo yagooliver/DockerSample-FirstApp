@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DockerSample.Application\DockerSample.Application.csproj" />
+    <ProjectReference Include="..\DockerSample.Domain\DockerSample.Domain.csproj" />
+    <ProjectReference Include="..\DockerSample.Infra.Data\DockerSample.Infra.Data.csproj" />
+  </ItemGroup>
+
+</Project>
